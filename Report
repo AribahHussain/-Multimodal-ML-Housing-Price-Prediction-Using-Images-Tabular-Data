@@ -1,0 +1,77 @@
+📝 Project Report: Multimodal House Price Prediction Using Tabular and Image Data
+🎯 Objective
+The objective of this project is to build a multimodal deep learning model that accurately predicts house prices by combining both tabular data (like number of rooms, area, location) and image data (pictures of the houses). This approach aims to simulate how humans consider both structured information and visual cues when estimating property value.
+
+📁 Dataset
+CSV File: socal2.csv
+Contains tabular features such as:
+
+Categorical (e.g., location, internet availability)
+
+Numerical (e.g., size, rooms, bathrooms, age of property)
+
+Target variable: price
+
+Images:
+One image per property named as house_<index>.jpg, stored in an images/ folder. If images are missing, dummy black images are generated to allow model training and testing.
+
+🛠️ Tools & Technologies
+Pandas, NumPy – For data loading and manipulation
+
+OpenCV – For image reading, resizing, and normalization
+
+Scikit-learn – For preprocessing, splitting, and evaluation
+
+TensorFlow / Keras – For building the deep learning model
+
+Matplotlib – (Optional) for visualization
+
+🔧 Workflow Summary
+Preprocessing
+
+Categorical features are encoded using One-Hot Encoding.
+
+Numerical features are standardized using a scaler.
+
+Images are resized to a fixed shape and normalized to ensure consistency.
+
+Data Splitting
+
+The combined dataset (tabular + image + target) is split into training and testing sets using an 80/20 ratio.
+
+Model Architecture
+
+The model consists of two branches:
+
+A Convolutional Neural Network (CNN) for extracting features from images.
+
+A fully connected feedforward network for processing tabular data.
+
+These two feature sets are then fused together using a concatenation layer and passed through additional dense layers to produce a single predicted price.
+
+Training & Optimization
+
+The model is trained using Mean Squared Error (MSE) as the loss function.
+
+The optimizer used is Adam, with a fixed learning rate.
+
+The model is trained for a fixed number of epochs with validation split for monitoring.
+
+Evaluation
+
+Predictions on the test set are evaluated using:
+
+Mean Absolute Error (MAE)
+
+Root Mean Squared Error (RMSE)
+
+These metrics give insights into the average deviation and prediction accuracy.
+
+📈 Results
+The model outputs MAE and RMSE indicating how closely the predicted house prices match the actual values.
+
+This combined modality (tabular + visual) showed improved performance over traditional tabular-only models (based on prior comparisons).
+
+✅ Conclusion
+The project successfully demonstrates the effectiveness of multimodal learning by integrating structured tabular data with unstructured image data to improve the accuracy of house price predictions.
+This approach mimics human reasoning, making it practical for applications in real estate, automated valuation models (AVMs), and property analytics platforms.
